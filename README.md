@@ -2,8 +2,9 @@
 - [Presentation](#presentation)
 - [Requirements](#requirements)
 - [Features](#features)
-- [How to use ?](#how-to-use-?)
+- [How to use ](#how-to-use)
   - [Get bot token](#get-bot-token)
+  - [Get Server Or User ID](#get-server-or-user-id)
 - [Preview](#preview)
 
 ## Presentation 
@@ -29,7 +30,7 @@ Nebula is the future of discord raider bots. In addition to having great efficie
 - Dm All : Send a private message to all server members
 ```
 
-## How to use ? 
+## How To Use  
 1. Install Python (3.10+) and add it to PATH.
 2. Download and extract latest Nebula version.
 3. Install requirements → open the cmd and go in Nebula folder then run `pip install -r requirements.txt`.
@@ -44,7 +45,12 @@ Nebula is the future of discord raider bots. In addition to having great efficie
       - Or by inserting the ID found at General Information into the following link : `https://discord.com/oauth2/authorize?client_id=HERE&permissions=8&scope=bot%20applications.commands`.
    - Open the bot tab and enable **All Privileged Gateway Intents** *(PRESENCE INTENT, SERVER MEMBERS INTENT and MESSAGE CONTENT INTENT)*.
    - Copy the token of the application (Reset it before).
-
+     
+   ### Get Server Or User ID
+   - Open your discord user settings.
+   - App Settings → Advanced.
+   - Active the Developer Mode.
+   - Now you can copy the server or user ID by right clicking on their profile and selecting "Copy Server/User ID".
 
 **If anything didn't work join the [discord server](https://discord.gg/kC93mkKTjs).**
 
