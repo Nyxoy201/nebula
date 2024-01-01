@@ -36,7 +36,7 @@ Nebula is the future of discord raider bots. In addition to having great efficie
 5. Run `main.py` in the cmd → `python main.py`.
 6. Enter Bot token and server id.
 
-**If anything didn't work join the [discord server](https://discord.gg/kC93mkKTjs)https://discord.gg/kC93mkKTjs).**
+**If anything didn't work join the [discord server](https://discord.gg/kC93mkKTjs).**
 
 ## Preview 
 ![image](https://github.com/Nyxoy201/nebula/assets/137317152/8e26fdc2-664a-4bed-b58c-299f676f6986)
