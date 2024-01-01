@@ -1,4 +1,10 @@
-# Table of Contents
+<center>
+
+# Nebula Raider
+
+</center>
+
+## Table of Contents
 - [Presentation](#presentation)
 - [Requirements](#requirements)
 - [Features](#features)
