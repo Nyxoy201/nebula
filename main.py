@@ -7,7 +7,6 @@ import random
 import config
 import urllib.request
 import asyncio
-import time
 import requests
 
 def get_latest_release_version(repo_owner, repo_name):
