@@ -11,6 +11,7 @@
 - [How to use ](#how-to-use)
   - [Get bot token](#get-bot-token)
   - [Get Server Or User ID](#get-server-or-user-id)
+- [Compiled Version](#compiled-version)
 - [Preview](#preview)
 
 ## Presentation 
@@ -59,6 +60,10 @@ Nebula is the future of discord raider bots. In addition to having great efficie
    - Now you can copy the server or user ID by right clicking on their profile and selecting "Copy Server/User ID".
 
 **If anything didn't work join the [discord server](https://discord.gg/YFCANma2AJ).**
+
+## Compiled Version
+If you don't want to use python you can use the compiled version (main.exe). 
+**Using the compiled version may cause bugs.**
 
 ## Preview 
 ![image](https://github.com/Nyxoy201/nebula/assets/137317152/8e26fdc2-664a-4bed-b58c-299f676f6986)
