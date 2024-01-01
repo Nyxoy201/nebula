@@ -46,7 +46,7 @@ def update_application(repo_owner, repo_name, current_version):
 
 repo_owner = 'Nyxoy201'
 repo_name = 'nebula'
-current_version = 'v1.1.0'
+current_version = 'v1.2.0'
 
 update_application(repo_owner, repo_name, current_version)
 
