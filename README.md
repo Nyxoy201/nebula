@@ -3,6 +3,7 @@
 - [Requirements](#requirements)
 - [Features](#features)
 - [How to use ?](#how-to-use-?)
+  - [Get bot token](#get-bot-token)
 - [Preview](#preview)
 
 ## Presentation 
@@ -35,6 +36,15 @@ Nebula is the future of discord raider bots. In addition to having great efficie
 4. Config the `config.py` if you want.
 5. Run `main.py` in the cmd → `python main.py`.
 6. Enter Bot token and server id.
+   ### Get Bot Token
+   1. Open the [Discord Developer Portal](https://discord.com/developers/) and go to the [Applications Tab](https://discord.com/developers/applications).
+   2. Create a new application.
+   3. Upload the Discord bot to your server
+      3.1 You can either invite the Discord bot in the developer portal under OAuth2 > URL Generator > **Bot and applications.commands** > **Administrator**.
+      3.2 Or by inserting the ID found at General Information into the following link : `https://discord.com/oauth2/authorize?client_id=HERE&permissions=8&scope=bot%20applications.commands`.
+   4. Open the bot tab and enable **All Privileged Gateway Intents** *(PRESENCE INTENT, SERVER MEMBERS INTENT and MESSAGE CONTENT INTENT)*.
+   5. Copy the token of the application (Reset it before).
+
 
 **If anything didn't work join the [discord server](https://discord.gg/kC93mkKTjs).**
 
