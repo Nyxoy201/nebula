@@ -1,8 +1,5 @@
-<center>
+# <div align="center"> Nebula Raider </div>
 
-# Nebula Raider
-
-</center>
 
 ## Table of Contents
 - [Presentation](#presentation)
