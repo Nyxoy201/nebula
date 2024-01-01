@@ -1,4 +1,7 @@
 # <div align="center"> Nebula Raider </div>
+<p align="center">
+  <img src="https://cdn.discordapp.com/attachments/1187439980574941215/1191386714787283015/file-kb5ago1CE8jbDsmh0Mw9Ai9g.png?ex=65a54057&is=6592cb57&hm=e7c9e73e99aa325801233c2c70607314beab1ea6a51df89b236cf972525004b6&" alt="The most powerful and complete bot Raider ever made.">
+</p>
 
 
 ## Table of Contents
