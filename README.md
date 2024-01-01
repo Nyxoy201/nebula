@@ -55,7 +55,7 @@ Nebula is the future of discord raider bots. In addition to having great efficie
    - Active the Developer Mode.
    - Now you can copy the server or user ID by right clicking on their profile and selecting "Copy Server/User ID".
 
-**If anything didn't work join the [discord server](https://discord.gg/kC93mkKTjs).**
+**If anything didn't work join the [discord server](https://discord.gg/B9QrEVHFF9).**
 
 ## Preview 
 ![image](https://github.com/Nyxoy201/nebula/assets/137317152/8e26fdc2-664a-4bed-b58c-299f676f6986)
