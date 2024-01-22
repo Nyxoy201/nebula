@@ -8,7 +8,7 @@
 </p>
 
 
-## <a id="Tables Of Contents"></a>🔱 » Table Of Contents
+## <a id="Tables-Of-Contents"></a>🔱 » Table Of Contents
 - [Presentation](#presentation)
 - [Requirements](#requirements)
 - [Features](#🛠-»-Features)
@@ -28,7 +28,6 @@ Nebula is the future of discord raider bots. In addition to having great efficie
 - An Active Internet Connection
 
 ## <a id="Features"></a>🛠 » Features
-```
 - Nuke : Delete all server's channels and roles
 - Create Channels : Create text/voice channels with custom name
 - Spam Channels: Flood channels using the bot with a custom message or embed.
