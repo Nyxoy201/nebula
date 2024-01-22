@@ -35,6 +35,7 @@ Nebula is the future of discord raider bots. In addition to having great efficie
 - Get Admin : Give an admin role to an user or all the server
 - Change Server : Change server with a custom or configured icon, name and description
 - Dm All : Send a private message to all server members
+- Auto Raid : Fast Raid with configured options
 ```
 
 ## How To Use  
