@@ -67,7 +67,7 @@ If you don't want to use python you can use the compiled version (main.exe).
 **Using the compiled version may cause bugs.**
 
 ## Preview 
-![image](https://github.com/Nyxoy201/nebula/assets/137317152/8e26fdc2-664a-4bed-b58c-299f676f6986)
+![image](https://github.com/Nyxoy201/nebula/assets/137317152/7d148e3b-c1b0-43cc-aaf4-d6dce09d5151)
 ![image](https://github.com/Nyxoy201/nebula/assets/137317152/ee10810a-6cad-4a77-bead-8f352903b0f0)
 ![image](https://github.com/Nyxoy201/nebula/assets/137317152/2e71b366-c6be-4bba-b1ea-9af1a7c8a697)
 
