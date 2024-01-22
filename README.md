@@ -9,16 +9,16 @@
 
 
 ## <a id="Tables-Of-Contents"></a>🔱 » Table Of Contents
-- [Presentation](#presentation)
-- [Requirements](#<a-id="Requirements"></a>💻-»-Requirements)
+- [Presentation](#🤖-»-Presentation)
+- [Requirements](#💻-»-Requirements)
 - [Features](#🛠-»-Features)
-- [How to use ](#how-to-use)
+- [How to use ](#📜-»-How-To-Use)
   - [Get bot token](#get-bot-token)
   - [Get Server Or User ID](#get-server-or-user-id)
 - [Compiled Version](#compiled-version)
 - [Preview](#preview)
 
-## Presentation 
+## <a id="Presentation"></a>🤖 » Presentation
 ### What is Nebula ? 
 Nebula is the future of discord raider bots. In addition to having great efficiency and numerous commands, it is controlled via panel which allows you to destroy it as anonymously as possible.
 
@@ -41,7 +41,7 @@ Nebula is the future of discord raider bots. In addition to having great efficie
 - Auto Raid : Fast Raid with configured options
 ```
 
-## How To Use  
+## <a id="How To Use"></a>📜 » How To Use
 1. Install Python (3.10+) and add it to PATH.
 2. Download and extract latest Nebula version.
 3. Install requirements → open the cmd and go in Nebula folder then run `pip install -r requirements.txt`.
