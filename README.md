@@ -11,7 +11,7 @@
 ## <a id="Tables-Of-Contents"></a>🔱 » Table Of Contents
 - [Presentation](#presentation)
 - [Requirements](#requirements)
-- [Features](#🛠-»-Features)
+- [Features](#Features)
 - [How to use ](#how-to-use)
   - [Get bot token](#get-bot-token)
   - [Get Server Or User ID](#get-server-or-user-id)
