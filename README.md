@@ -10,8 +10,8 @@
 
 ## <a id="Tables-Of-Contents"></a>🔱 » Table Of Contents
 - [Presentation](#presentation)
-- [Requirements](#requirements)
-- [Features](#Features)
+- [Requirements](#💻-»-Requirements)
+- [Features](#🛠-»-Features)
 - [How to use ](#how-to-use)
   - [Get bot token](#get-bot-token)
   - [Get Server Or User ID](#get-server-or-user-id)
@@ -22,7 +22,7 @@
 ### What is Nebula ? 
 Nebula is the future of discord raider bots. In addition to having great efficiency and numerous commands, it is controlled via panel which allows you to destroy it as anonymously as possible.
 
-## Requirements
+## <a id="Requirements"></a>💻 » Requirements
 - Python 3.10+
 - Requirements.txt
 - An Active Internet Connection
