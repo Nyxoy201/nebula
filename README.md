@@ -10,7 +10,7 @@
 
 ## <a id="Tables-Of-Contents"></a>🔱 » Table Of Contents
 - [Presentation](#presentation)
-- [Requirements](#💻-»-Requirements)
+- [Requirements](#<a-id="Requirements"></a>💻-»-Requirements)
 - [Features](#🛠-»-Features)
 - [How to use ](#how-to-use)
   - [Get bot token](#get-bot-token)
