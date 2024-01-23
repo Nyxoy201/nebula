@@ -35,3 +35,8 @@ NO_BAN_KICK_ID = {
     111111111111,       # No Ban & No Kick
     222222222222,
 }
+
+BOT_PRESENCE = {
+    "type": "",  # "playing", "listening", or "watching"
+    "text": ""  # Your text presence
+}
