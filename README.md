@@ -32,8 +32,8 @@ Nebula is the future of discord raider bots. In addition to having great efficie
 - Create Channels : Create text/voice channels with custom name
 - Spam Channels: Flood channels using the bot with a custom message or embed.
 - Webhook Spam : Flood channels with webhooks with a custom message or embed (fastest)
-- Kick All : Kick everyone in the server
-- Ban All : Ban everyone in the server
+- Kick All : Kick everyone in the server except whitelist ID
+- Ban All : Ban everyone in the server except whitelist ID
 - Create Roles : Create roles with a custom name
 - Get Admin : Give an admin role to an user or all the server
 - Change Server : Change server with a custom or configured icon, name and description
