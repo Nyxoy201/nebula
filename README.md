@@ -39,6 +39,7 @@ Nebula is the future of discord raider bots. In addition to having great efficie
 - Change Server : Change server with a custom or configured icon, name and description
 - Dm All : Send a private message to all server members
 - Auto Raid : Fast Raid with configured options
+- Custom Bot Presence : Set your presence options in the config file
 ```
 
 ## <a id="How To Use"></a>📜 » How To Use
