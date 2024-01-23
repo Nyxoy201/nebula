@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 Nebula Raider
+# 🤖 Nebula Raider V1.3.1
 
 </div>
 <p align="center">
