@@ -9,6 +9,9 @@ import urllib.request
 import asyncio
 import time
 import requests
+from discord import Game
+from discord import Activity, ActivityType
+
 
 def get_latest_release_version(repo_owner, repo_name):
     url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest'
@@ -47,7 +50,7 @@ def update_application(repo_owner, repo_name, current_version):
 
 repo_owner = 'Nyxoy201'
 repo_name = 'nebula'
-current_version = 'v1.3.1'
+current_version = 'v1.3.2'
 
 update_application(repo_owner, repo_name, current_version)
 
@@ -645,10 +648,18 @@ async def on_ready():
     server = bot.get_guild(int(server_id))
     if server:
         print((Colorate.Color(Colors.green, f'[+] Bot is in the specified server ({server.name})')))
+        
+
     else:
         print((Colorate.Color(Colors.red, f'[-] Bot is not in the specified server')))
         return
+    
+    from config import BOT_PRESENCE
+    presence_type = getattr(ActivityType, BOT_PRESENCE["type"].lower())
+    await bot.change_presence(activity=Activity(type=presence_type, name=BOT_PRESENCE["text"]))
+
     time.sleep(2)
+
 
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -660,7 +671,7 @@ async def on_ready():
                             ██║╚██╗██║██╔══╝  ██╔══██╗██║   ██║██║     ██╔══██║
                             ██║ ╚████║███████╗██████╔╝╚██████╔╝███████╗██║  ██║
                             ╚═╝  ╚═══╝╚══════╝╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝
-                                                                              V1.3.1                                                                                 
+                                                                              V1.3.2                                                                                
                                        
     ╔═══════════════════════════════╦═══════════════════════════════╦═══════════════════════════════╗                                       
     ║           1 - Nuke            ║       2 - Create Channels     ║      3 - Spam Channels        ║
