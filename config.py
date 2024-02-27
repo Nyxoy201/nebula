@@ -1,14 +1,14 @@
 EMBED_CONFIG = {
-    "title": "NEbula",    # Maine Embed Title here 
-    "description": "test",   # Main Embed Description here 
+    "title": "",    # Maine Embed Title here 
+    "description": "",   # Main Embed Description here 
     "color": 0xFF5733,   # Change embed color if you want (red)
     "fields": [
         {"name": "test", "value": "test", "inline": False},    # Embed Field → Juste Modify → Just edit the empty places
         {"name": "test", "value": "test", "inline": False},
         {"name": "test","value": "test", "inline": False},    # Exemple → "name": "Title 1", "value": "Hello, here is my message", "inline": False
     ],
-    "image": "https://cdn.discordapp.com/attachments/1198721632294948916/1199070304002121898/image.png?ex=65c1343e&is=65aebf3e&hm=8574e4154b42f80001bb9ce7ef8bfab9437d38ff0baa9a503572b06a8116240f&",   # Embed Icon url here → https://image.jpg
-    "footer": "Nyxoy",  # Embed Footer here 
+    "image": "",   # Embed Icon url here → https://image.jpg
+    "footer": "",  # Embed Footer here 
 }
 
 SERVER_CONFIG = {
@@ -37,6 +37,6 @@ NO_BAN_KICK_ID = {
 }
 
 BOT_PRESENCE = {
-    "type": "",  # "playing", "listening", or "watching"
-    "text": ""  # Your text presence
+    "type": "playing",  # "playing", "listening", or "watching"
+    "text": "Nebula"  # Your text presence
 }
